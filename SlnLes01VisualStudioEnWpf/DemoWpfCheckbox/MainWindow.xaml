@@ -1,0 +1,14 @@
+﻿<Window x:Class="DemoWpfCheckbox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemoWpfCheckbox"
+        mc:Ignorable="d"
+        Title="WPF Controls Demo - Checkbox" Height="300" Width="600" Background="#FFF3F1D7">
+    <Grid>
+        <Label x:Name="lblMessage" Content="..." HorizontalAlignment="Left" Margin="27,20,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbYesNo" Content="mee eens of niet?" HorizontalAlignment="Left" Margin="27,71,0,0" VerticalAlignment="Top" Checked="chbYesNo_Checked" Unchecked="chbYesNo_Unchecked"/>
+
+    </Grid>
+</Window>
