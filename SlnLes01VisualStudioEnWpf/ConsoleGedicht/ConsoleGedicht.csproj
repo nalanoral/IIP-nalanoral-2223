@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B467970F-6D95-434C-B283-377192D2A0E6}</ProjectGuid>
+    <ProjectGuid>{A19AE431-FAE0-4C98-8168-D1578DE689B4}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleHalloWereld</RootNamespace>
-    <AssemblyName>ConsoleHalloWereld</AssemblyName>
+    <RootNamespace>ConsoleGedicht</RootNamespace>
+    <AssemblyName>ConsoleGedicht</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

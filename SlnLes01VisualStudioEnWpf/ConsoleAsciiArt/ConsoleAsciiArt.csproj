@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B467970F-6D95-434C-B283-377192D2A0E6}</ProjectGuid>
+    <ProjectGuid>{F2485671-2078-4CF1-9185-614AB9CA4926}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleHalloWereld</RootNamespace>
-    <AssemblyName>ConsoleHalloWereld</AssemblyName>
+    <RootNamespace>ConsoleAsciiArt</RootNamespace>
+    <AssemblyName>ConsoleAsciiArt</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -47,6 +47,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".editorconfig" />
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
