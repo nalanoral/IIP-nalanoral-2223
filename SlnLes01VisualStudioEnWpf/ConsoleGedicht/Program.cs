@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleGedicht
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
@@ -16,7 +16,12 @@ namespace ConsoleGedicht
             Console.ReadKey();
             Console.WriteLine(" 't Scheen, dat Jantje wou gaan plukken, ");
             Console.ReadKey();
-
+            Console.WriteLine(" schoon zijn vader 't hem verbood. ");
+            Console.ReadKey();
+            Console.WriteLine(" Hier is, zei hij, noch mijn vader, ");
+            Console.ReadKey();
+            Console.WriteLine("noch de tuinman, die het ziet: ");
+            Console.ReadKey();
         }
     }
 }
