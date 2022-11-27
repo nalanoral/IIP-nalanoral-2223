@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfBMI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfBMI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Label Content="BMI CALCULATOR" HorizontalAlignment="Left" Margin="157,77,0,0" VerticalAlignment="Top" RenderTransformOrigin="3.837,0.465" FontSize="20" FontWeight="Bold"/>
+        <Label Name="lblLengte" Content="Lengte : " HorizontalAlignment="Left" Margin="48,131,0,0" VerticalAlignment="Top" Height="47" Width="87" FontSize="18" FontWeight="Bold"/>
+        <Label  Name="lblGewicht" Content=" Gewicht :" HorizontalAlignment="Left" Margin="48,183,0,0" VerticalAlignment="Top" Height="34" Width="109" FontSize="18" FontWeight="Bold"/>
+        <TextBox x:Name="txtbxCM" HorizontalAlignment="Left" Margin="157,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155" Height="22"/>
+        <TextBox Name="txtbxKg" HorizontalAlignment="Left" Margin="157,182,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="160" Height="35"/>
+        <Label x:Name="LblCm" Content="cm" HorizontalAlignment="Left" Margin="339,145,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="38"/>
+        <Label x:Name="LblKg" Content="kg" HorizontalAlignment="Left" Margin="339,183,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Button x:Name="BtnBerekenen" Content="Berekenen" HorizontalAlignment="Left" Margin="163,235,0,0" VerticalAlignment="Top" Width="143" Height="27" FontWeight="Bold" FontSize="16" Click="BtnBerekenen_Click"/>
+        <Label x:Name="LblBMI" Content="BMI: " HorizontalAlignment="Left" Margin="58,277,0,0" VerticalAlignment="Top" Width="88"/>
+    </Grid>
+</Window>
