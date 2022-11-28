@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfBMI
+namespace WpfAlcohol
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,14 +23,6 @@ namespace WpfBMI
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void BtnBerekenen_Click(object sender, RoutedEventArgs e)
-        {
-            double getalcm = Convert.ToDouble(txtbxCM.Text);
-            double getalkg = Convert.ToDouble(txtbxKg.Text);
-            double bmi = getalkg / (getalcm / 100 * getalcm / 100);
-            LblBMI.Content = "BMI :" + Math.Round(bmi, 1);
         }
     }
 }

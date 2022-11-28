@@ -17,9 +17,8 @@ namespace ConsoleSeconden
             string totaalSeconden = Console.ReadLine();
             int totaal = Convert.ToInt32(totaalSeconden);
 
-            //  dag,uur, minuten, seconden berekenen
-
-            // 60*60*24 =  86400 (dag)
+            // dag,uur, minuten, seconden berekenen
+            // 60*60*24 = 86400 (dag)
             // 60 * 60 = 3600 (uur )
 
             int dag = totaal / 86400;
@@ -31,7 +30,7 @@ namespace ConsoleSeconden
             int seconden = restMinuten / 1;
 
             // antwoord
-            Console.WriteLine("Dit zijn {0} dag {1} uur {2} minuten {3} seconden" ,dag, uur, minuten, seconden);
+            Console.WriteLine($"Dit zijn {dag} dag {uur} uur {minuten} minuten {seconden} seconden", dag, uur, minuten, seconden);
             Console.ReadLine();
         }
     }
