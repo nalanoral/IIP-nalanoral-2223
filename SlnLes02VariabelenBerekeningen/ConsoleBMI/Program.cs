@@ -10,11 +10,13 @@ namespace ConsoleBMI
     {
         static void Main(string[] args)
         {
-            //Head
+            // Head
+
             Console.WriteLine("BMI CALCULATOR");
             Console.WriteLine("==============");
 
-            //lengte
+            // lengte
+
             Console.WriteLine("Lengte (in cm): ");
 
 

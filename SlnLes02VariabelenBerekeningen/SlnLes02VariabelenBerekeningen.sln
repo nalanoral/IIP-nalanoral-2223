@@ -7,6 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleBMI", "ConsoleBMI\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfBMI", "WpfBMI\WpfBMI.csproj", "{215D67CC-E4AB-432C-B5D4-5E56CACB7873}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{13853C9A-0F60-4904-BAE6-C1B6725CF09E}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleSeconden", "ConsoleSeconden\ConsoleSeconden.csproj", "{F01F5B2D-78FB-4A0B-A215-C115A8404A61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleBuffet", "ConsoleBuffet\ConsoleBuffet.csproj", "{112DFC36-D51A-4492-9253-F397392E72C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +30,14 @@ Global
 		{215D67CC-E4AB-432C-B5D4-5E56CACB7873}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{215D67CC-E4AB-432C-B5D4-5E56CACB7873}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{215D67CC-E4AB-432C-B5D4-5E56CACB7873}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F01F5B2D-78FB-4A0B-A215-C115A8404A61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F01F5B2D-78FB-4A0B-A215-C115A8404A61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F01F5B2D-78FB-4A0B-A215-C115A8404A61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F01F5B2D-78FB-4A0B-A215-C115A8404A61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{112DFC36-D51A-4492-9253-F397392E72C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{112DFC36-D51A-4492-9253-F397392E72C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{112DFC36-D51A-4492-9253-F397392E72C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{112DFC36-D51A-4492-9253-F397392E72C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
