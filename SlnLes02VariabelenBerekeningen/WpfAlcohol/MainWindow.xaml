@@ -7,6 +7,24 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="53*"/>
+            <ColumnDefinition Width="197*"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="imgBier" Source="Images/bier.jpg" HorizontalAlignment="Left" Height="52" Margin="46,43,0,0" VerticalAlignment="Top" Width="86"/>
+        <Image x:Name="imgWijn" Source="Images/rode-wijn.png" HorizontalAlignment="Left" Height="97" Margin="60,120,0,0" VerticalAlignment="Top" Width="57"/>
+        <Image x:Name="imgWiski" Source="Images/wiski.jpg" HorizontalAlignment="Left" Height="69" Margin="47,244,0,0" VerticalAlignment="Top" Width="95"/>
+        <Label Content="Alcohol-gehalte" HorizontalAlignment="Left" Height="49" VerticalAlignment="Top" Width="180" FontSize="20" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <Slider x:Name="sldBier" Grid.Column="1" Minimum="0" Maximum="5" Value="0" IsSnapToTickEnabled="True" TickFrequency="1" HorizontalAlignment="Left" Height="19" Margin="19,61,0,0" VerticalAlignment="Top" Width="240" ValueChanged="sldBier_ValueChanged"/>
+        <Slider Name="sldWijn" Grid.Column="1" Minimum="0" Maximum="5" Value="0" Margin="19,144,363,0" VerticalAlignment="Top" IsSnapToTickEnabled="True" Width="248" ValueChanged="sldWijn_ValueChanged"/>
+        <Slider x:Name="sldSterkeDrank" Grid.Column="1" Minimum="0" Maximum="5" Value="0" IsSnapToTickEnabled="True" TickFrequency="1"  HorizontalAlignment="Left" Height="19" Margin="27,268,0,0" VerticalAlignment="Top" Width="240" ValueChanged="sldSterkeDrank_ValueChanged" />
+        <TextBlock x:Name="txtBier" Grid.Column="1" Height="42" Margin="450,49,40,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"/>
+        <TextBlock x:Name="txtWijn" Grid.Column="1" HorizontalAlignment="Left" Height="42" Margin="485,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" FontSize="14"/>
+        <TextBlock x:Name="txtSterkeDrank" Grid.Column="1" Height="42" Margin="485,255,40,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"/>
+        <Rectangle Name="rctAlcoholGehalte" HorizontalAlignment="Left" Height="30" Margin="8,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="322" Grid.Column="1"/>
+        <Label  Content="Alcohol-gehalte:" HorizontalAlignment="Left" Margin="20,335,0,0" VerticalAlignment="Top" Width="107"/>
         
+
+
     </Grid>
 </Window>

@@ -24,5 +24,59 @@ namespace WpfAlcohol
         {
             InitializeComponent();
         }
+
+        private void sldBier_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            //Text voor  hoeveelheid glazen 
+            txtBier.Text = sldBier.Value + " glazen";
+
+            //Alle sliders samen optellen 
+            rctAlcoholGehalte.Width = Math.Round(sldBier.Value * 17) + Math.Round(sldWijn.Value * 17) + Math.Round(sldSterkeDrank.Value * 17);
+
+            //Na hoeveel glazen gaat het van groen naar rood
+            int rood = Convert.ToInt32(rctAlcoholGehalte.Width);
+            int groen = 255 - rood;
+            int blauw = 0;
+
+            //Aanmaken van de kleuren
+            rctAlcoholGehalte.Fill = new SolidColorBrush(Color.FromRgb((byte)rood, (byte)groen, (byte)blauw));
+
+        }
+
+        private void sldSterkeDrank_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            txtSterkeDrank.Text = sldSterkeDrank.Value + " glazen";
+            //Text voor  hoeveelheid glazen 
+            txtBier.Text = sldBier.Value + " glazen";
+
+            //Alle sliders samen optellen 
+            rctAlcoholGehalte.Width = Math.Round(sldBier.Value * 17) + Math.Round(sldWijn.Value * 17) + Math.Round(sldSterkeDrank.Value * 17);
+
+            //Na hoeveel glazen gaat het van groen naar rood
+            int rood = Convert.ToInt32(rctAlcoholGehalte.Width);
+            int groen = 255 - rood;
+            int blauw = 0;
+
+            //Aanmaken van de kleuren
+            rctAlcoholGehalte.Fill = new SolidColorBrush(Color.FromRgb((byte)rood, (byte)groen, (byte)blauw));
+        }
+
+        private void sldWijn_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            txtWijn.Text = sldWijn.Value + " glazen";
+            //Text voor  hoeveelheid glazen 
+            txtBier.Text = sldBier.Value + " glazen";
+
+            //Alle sliders samen optellen 
+            rctAlcoholGehalte.Width = Math.Round(sldBier.Value * 17) + Math.Round(sldWijn.Value * 17) + Math.Round(sldSterkeDrank.Value * 17);
+
+            //Na hoeveel glazen gaat het van groen naar rood
+            int rood = Convert.ToInt32(rctAlcoholGehalte.Width);
+            int groen = 255 - rood;
+            int blauw = 0;
+
+            //Aanmaken van de kleuren
+            rctAlcoholGehalte.Fill = new SolidColorBrush(Color.FromRgb((byte)rood, (byte)groen, (byte)blauw));
+        }
     }
 }

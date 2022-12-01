@@ -20,15 +20,19 @@ namespace WpfWinkel
     /// </summary>
     public partial class MainWindow : Window
     {
+        const double PRIJSBANAAN = 2.20;
+        const double PRIJSBOTER = 3.05;
+        const double PRIJSEIEREN = 2.75;
         int aantalBananen;
         int aantalBoter;
         int aantalEieren;
+
+        string prijsboter = PRIJSBOTER.ToString("0.00");
+        string prijsbanaan = PRIJSBANAAN.ToString("0.00");
+        string prijseieren = PRIJSEIEREN.ToString("0.00");
+
         double totalPrijs;
-        const double PRIJS_BANAAN = 2.20;
-        const double PRIJS_BOTER = 3.05;
-        const double PRIJS_EIEREN = 2.75;
-
-
+      
         public MainWindow()
         {
             InitializeComponent();
@@ -40,38 +44,44 @@ namespace WpfWinkel
             lblBananen.Content = aantalBananen + "over";
             lblBoter.Content = aantalBoter + "over";
             lblEiren.Content = aantalEieren + "over";
+            lblBananaPrijs.Content = PRIJSBANAAN.ToString("0.00");
+            lblBoterPrijs.Content = PRIJSEIEREN.ToString("0.00");
+            lblEirenPrijs.Content = PRIJSEIEREN.ToString("0.00");
 
         }
 
-        private void btnBananen_Click(object sender, RoutedEventArgs e)
-        {   
+        private void BtnBananen_Click(object sender, RoutedEventArgs e)
+        {
             lblBananen.Content = aantalBananen - 1;
-            lstboxVerkocht.Items.Add($"{PRIJS_BANAAN} - 1 pak banaan");
+            lstboxVerkocht.Items.Add($"{PRIJSBANAAN} - 1 pak banaan");
             totalPrijs += 2.20;
 
         }
 
-        private void btnBoter_Click(object sender, RoutedEventArgs e)
-        {
+        private void BtnBoter_Click(object sender, RoutedEventArgs e)
+        { 
             lblBoter.Content = aantalBoter - 1;
-            lstboxVerkocht.Items.Add($"{PRIJS_BOTER} - 1 pak boter");
+            lstboxVerkocht.Items.Add($"{PRIJSBOTER} - 1 pak boter");
             totalPrijs += 3.05;
 
         }
 
-        private void btnEiren_Click(object sender, RoutedEventArgs e)
+        private void BtnEiren_Click(object sender, RoutedEventArgs e)
         {
             lblEiren.Content = aantalEieren - 1;
-            lstboxVerkocht.Items.Add($"{PRIJS_EIEREN} - 1 pak boter");
+            lstboxVerkocht.Items.Add($"{PRIJSEIEREN} - 1 pak boter");
             totalPrijs += 2.75;
         }
 
-        private void btnAfrekenen_Click(object sender, RoutedEventArgs e)
+        private void BtnAfrekenen_Click(object sender, RoutedEventArgs e)
         {
-            
+            BtnAfrekenen.IsEnabled = true;
+            double som = totalPrijs;
+            LblSom.Content = $"{Math.Round(som, 2)} euro";
+
         }
 
-        private void btnHerstel_Click(object sender, RoutedEventArgs e)
+        private void BtnHerstel_Click(object sender, RoutedEventArgs e)
         {
             lstboxVerkocht.Items.Clear();
             lblBananen.Content = "";
