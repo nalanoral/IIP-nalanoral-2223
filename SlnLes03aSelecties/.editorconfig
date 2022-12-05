@@ -197,3 +197,12 @@ dotnet_diagnostic.SA1507.severity = none
 
 # SA0001: XML comment analysis disabled
 dotnet_diagnostic.SA0001.severity = none
+
+# SA1300: Element should begin with upper-case letter
+dotnet_diagnostic.SA1300.severity = none
+
+# SA1515: Single-line comment should be preceded by blank line
+dotnet_diagnostic.SA1515.severity = none
+
+# SA1005: Single line comments should begin with single space
+dotnet_diagnostic.SA1005.severity = none

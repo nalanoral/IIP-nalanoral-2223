@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B9E6D2CF-BFF1-4902-9172-5A3B7E9646A2}</ProjectGuid>
+    <ProjectGuid>{262C3F24-6155-4F4C-93C6-DDACF3AFF65C}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleRaden</RootNamespace>
-    <AssemblyName>ConsoleRaden</AssemblyName>
+    <RootNamespace>ConsoleBestelling</RootNamespace>
+    <AssemblyName>ConsoleBestelling</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
