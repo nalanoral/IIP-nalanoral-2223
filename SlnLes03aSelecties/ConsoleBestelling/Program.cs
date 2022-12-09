@@ -15,10 +15,9 @@ namespace ConsoleBestelling
 
         static void Main(string[] args)
         {
-            string pizzaKeuze = "";
-            string pizzaGrootekeuze = "";
-            
-
+            string pizzakeuze = "";
+            string grooteKeuze = "";
+            string bezorgingsKeuze = "";
             double totaal = 0;
             Console.WriteLine(@"PIZZA BESTELLING
 ================
@@ -41,34 +40,9 @@ c) 25 cm (groot; + 20%)
 
             // keuze  bezorging
             Console.WriteLine(" thuis bezorgen (3 euro extra)? ja /nee ");
-            string bezorgingsKeuze = Console.ReadLine();
+            string bezorging = Console.ReadLine();
 
-           
-            switch (pizza) 
-            {
-                case 'a': pizzaKeuze = "Margherita"; totaal += PRIJSMARGHERITA; break;
-                case 'b': pizzaKeuze = "Fungi"; totaal += PRIJSFUNGI; break;
-                case 'c': pizzaKeuze = "Diabolo"; totaal += PRIJSDIABOLO; break;
-                default: break;
-            }
-
-            switch (grootte)
-            {
-                case 'a': pizzaGrootekeuze = "klein"; totaal *= 0.8; break;
-                case 'b': pizzaGrootekeuze = "Normaal"; totaal *= 1; break;
-                case 'c': pizzaGrootekeuze = "Groot"; totaal *= 1.2; break;
-                default: break;
-            }
-
-            switch (bezorgingsKeuze)
-            {
-                case "ja": bezorgingsKeuze = "thuis bezorging"; totaal += PRIJSBEZORGING; break;
-                case "nee": bezorgingsKeuze = "afhalen"; break;
-                default: break;
-            }
-
-            Console.WriteLine($"Jouw bestelling: {pizzaGrootekeuze} pizza {pizzaKeuze} voor {totaal}euro {bezorgingsKeuze}");
-             // uitvoeren ? //
+           //use if case for continue... //
 
         }
     }

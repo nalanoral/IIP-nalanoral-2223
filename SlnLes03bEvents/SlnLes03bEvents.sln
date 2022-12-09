@@ -3,7 +3,54 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfDatumkiezer", "WpfDatumkiezer\WpfDatumkiezer.csproj", "{DA8396ED-08F7-46D5-A19A-6C78CFE9211E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3A4D10A0-A335-4A09-BDFB-BF1E2FE15599}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfGebruikersnaam", "WpfGebruikersnaam\WpfGebruikersnaam.csproj", "{5DF592DD-5FB0-4570-9E54-C7EA96786EE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfProgressBar", "WpfProgressBar\WpfProgressBar.csproj", "{D29158FD-6127-4CBC-B072-68D59C347367}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfOxo", "WpfOxo\WpfOxo.csproj", "{D2CCD208-324A-4F1B-83E0-A9B66B485524}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfOpties", "WpfOpties]\WpfOpties.csproj", "{E4C430CB-2228-44B2-894F-73A0197A8818}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleEindcijfer", "ConsoleEindcijfer\ConsoleEindcijfer.csproj", "{AAF033D9-BB1E-462D-8F7A-D40F8CC773E7}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA8396ED-08F7-46D5-A19A-6C78CFE9211E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA8396ED-08F7-46D5-A19A-6C78CFE9211E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA8396ED-08F7-46D5-A19A-6C78CFE9211E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA8396ED-08F7-46D5-A19A-6C78CFE9211E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DF592DD-5FB0-4570-9E54-C7EA96786EE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DF592DD-5FB0-4570-9E54-C7EA96786EE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DF592DD-5FB0-4570-9E54-C7EA96786EE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DF592DD-5FB0-4570-9E54-C7EA96786EE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D29158FD-6127-4CBC-B072-68D59C347367}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D29158FD-6127-4CBC-B072-68D59C347367}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D29158FD-6127-4CBC-B072-68D59C347367}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D29158FD-6127-4CBC-B072-68D59C347367}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2CCD208-324A-4F1B-83E0-A9B66B485524}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2CCD208-324A-4F1B-83E0-A9B66B485524}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2CCD208-324A-4F1B-83E0-A9B66B485524}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2CCD208-324A-4F1B-83E0-A9B66B485524}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4C430CB-2228-44B2-894F-73A0197A8818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4C430CB-2228-44B2-894F-73A0197A8818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4C430CB-2228-44B2-894F-73A0197A8818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4C430CB-2228-44B2-894F-73A0197A8818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAF033D9-BB1E-462D-8F7A-D40F8CC773E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAF033D9-BB1E-462D-8F7A-D40F8CC773E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAF033D9-BB1E-462D-8F7A-D40F8CC773E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAF033D9-BB1E-462D-8F7A-D40F8CC773E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

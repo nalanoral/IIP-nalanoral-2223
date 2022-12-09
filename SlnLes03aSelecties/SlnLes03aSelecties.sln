@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfBieden", "WpfBieden\WpfB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleBestelling", "ConsoleBestelling\ConsoleBestelling.csproj", "{262C3F24-6155-4F4C-93C6-DDACF3AFF65C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfFormChecking", "WpfFormChecking\WpfFormChecking.csproj", "{432AFF5A-CBB7-4669-9D48-FF39E9D644BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{262C3F24-6155-4F4C-93C6-DDACF3AFF65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{262C3F24-6155-4F4C-93C6-DDACF3AFF65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{262C3F24-6155-4F4C-93C6-DDACF3AFF65C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{432AFF5A-CBB7-4669-9D48-FF39E9D644BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{432AFF5A-CBB7-4669-9D48-FF39E9D644BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{432AFF5A-CBB7-4669-9D48-FF39E9D644BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{432AFF5A-CBB7-4669-9D48-FF39E9D644BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
