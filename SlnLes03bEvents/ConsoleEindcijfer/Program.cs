@@ -26,7 +26,7 @@ namespace ConsoleEindcijfer
             project = (project / 2) * 2;
 
             Console.WriteLine("Geef het cijfer op het examen (op 20): ");
-            examen= Convert.ToDouble(Console.ReadLine());
+            examen = Convert.ToDouble(Console.ReadLine());
             examen = (examen / 2) * 5; //50%
 
             eindcijfer = dagelijkswerk + project + examen;
@@ -56,9 +56,6 @@ namespace ConsoleEindcijfer
             }
 
             Console.ReadLine();
-
-
-
         }
     }
 }
