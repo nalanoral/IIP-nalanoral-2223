@@ -16,6 +16,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleOnderBoven", "Consol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleSom", "ConsoleSom\ConsoleSom.csproj", "{9AF17B47-1663-431B-9013-B7C841FA41F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleBankautomaat", "ConsoleBankautomaat\ConsoleBankautomaat.csproj", "{8264C6E9-596A-484A-9799-03DA2E19618B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfPriemgetal", "WpfPriemgetal\WpfPriemgetal.csproj", "{76C3BE2B-2E69-4BE5-A420-551BA9ADC19A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfBoodschappenlijst", "WpfBoodschappenlijst\WpfBoodschappenlijst.csproj", "{49C6515C-3D1F-4221-B08E-DE688F468C97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfEllipsen (1)", "WpfEllipsen (1)\WpfEllipsen (1).csproj", "{51E44338-990A-4398-BDC8-7D6E62C1CE66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfEllipsen (2)", "WpfEllipsen (2)\WpfEllipsen (2).csproj", "{3E039BCA-1296-4859-8BC7-9AD52563DA38}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +48,26 @@ Global
 		{9AF17B47-1663-431B-9013-B7C841FA41F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AF17B47-1663-431B-9013-B7C841FA41F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AF17B47-1663-431B-9013-B7C841FA41F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8264C6E9-596A-484A-9799-03DA2E19618B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8264C6E9-596A-484A-9799-03DA2E19618B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8264C6E9-596A-484A-9799-03DA2E19618B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8264C6E9-596A-484A-9799-03DA2E19618B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76C3BE2B-2E69-4BE5-A420-551BA9ADC19A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76C3BE2B-2E69-4BE5-A420-551BA9ADC19A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76C3BE2B-2E69-4BE5-A420-551BA9ADC19A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76C3BE2B-2E69-4BE5-A420-551BA9ADC19A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49C6515C-3D1F-4221-B08E-DE688F468C97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49C6515C-3D1F-4221-B08E-DE688F468C97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49C6515C-3D1F-4221-B08E-DE688F468C97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49C6515C-3D1F-4221-B08E-DE688F468C97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51E44338-990A-4398-BDC8-7D6E62C1CE66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51E44338-990A-4398-BDC8-7D6E62C1CE66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51E44338-990A-4398-BDC8-7D6E62C1CE66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51E44338-990A-4398-BDC8-7D6E62C1CE66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E039BCA-1296-4859-8BC7-9AD52563DA38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E039BCA-1296-4859-8BC7-9AD52563DA38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E039BCA-1296-4859-8BC7-9AD52563DA38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E039BCA-1296-4859-8BC7-9AD52563DA38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

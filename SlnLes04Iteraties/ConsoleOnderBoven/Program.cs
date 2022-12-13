@@ -21,7 +21,7 @@ namespace ConsoleOnderBoven
             {
                 Console.Write("Bovengrens mag niet kleiner zijn dan ondergrens. Geef een bovengrens: ");
                 bovengrens = Convert.ToInt32(Console.ReadLine());
-            }
+            }   
 
             while (bovengrens == ondergrens)
             {

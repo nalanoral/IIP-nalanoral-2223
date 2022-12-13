@@ -10,17 +10,29 @@ namespace ConsoleSom
     {
         static void Main(string[] args)
         {
-            int getal;
+            // variabelen 
+            string getal;
             int som = 0;
 
             do
             {
                 Console.Write("Voer een getal in (q om te stoppen) ");
-                getal = Convert.ToInt32(Console.ReadLine());
-                som += getal;
-            } while (Console.ReadLine() != "q");
-            Console.WriteLine($"De som is: {som}");
+                getal = Console.ReadLine();
+                if (getal != "q")
+                {
+                    int getalPlus = Convert.ToInt32(getal);
+                    som += getalPlus;
+                }
+
+                // als de input "q" is geef de som weer
+                else
+                {
+                    Console.WriteLine($"De som is: {som}");
+                }
+            }
+            while (getal != "q");
             Console.ReadKey();
         }
     }
 }
+
