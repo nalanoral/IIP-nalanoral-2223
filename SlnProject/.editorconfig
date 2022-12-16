@@ -191,6 +191,3 @@ dotnet_diagnostic.SA1101.severity = none
 
 # SA1407: Arithmetic expressions should declare precedence
 dotnet_diagnostic.SA1407.severity = none
-
-# SA1508: Closing braces should not be preceded by blank line
-dotnet_diagnostic.SA1508.severity = none

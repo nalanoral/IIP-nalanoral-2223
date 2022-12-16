@@ -54,7 +54,6 @@ namespace WpfEllipsen__2_
                 newEllipse.SetValue(Canvas.LeftProperty, xPos);
                 newEllipse.SetValue(Canvas.TopProperty, yPos);
                 canvas1.Children.Add(newEllipse);
-
             }
         }
     }

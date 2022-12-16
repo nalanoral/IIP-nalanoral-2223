@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Ellipsen" Height="450" Width="800">
     <Grid>
-        <Canvas x:Name="canvas1" HorizontalAlignment="Left" Height="255" Margin="47,122,0,0" VerticalAlignment="Top" Width="700"/>
-        <Button x:Name="btnTekenen" Content="TEKENEN" HorizontalAlignment="Left" Margin="611,77,0,0" VerticalAlignment="Top" Width="136" Height="40" FontSize="16" FontWeight="Bold" Click="BtnTekenen_Click" />
+        <Canvas x:Name="canvas1" HorizontalAlignment="Left" Height="255" Margin="50,125,0,0" VerticalAlignment="Top" Width="700"/>
+        <Button x:Name="btnTekenen" Content="TEKENEN" HorizontalAlignment="Left" Margin="610,75,0,0" VerticalAlignment="Top" Width="136" Height="40" FontSize="16" FontWeight="Bold" Click="BtnTekenen_Click"/>
     </Grid>
 </Window>
