@@ -113,5 +113,16 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sounds\birds.wav" />
+    <Content Include="Sounds\chickensound.wav" />
+    <Content Include="Sounds\cockerelsound.wav" />
+    <Content Include="Sounds\cow.wav" />
+    <Content Include="Sounds\dog.wav" />
+    <Content Include="Sounds\dogsounds.wav" />
+    <Content Include="Sounds\donkeysounds.wav" />
+    <Content Include="Sounds\ducksounds.wav" />
+    <Content Include="Sounds\hoggetsounds.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

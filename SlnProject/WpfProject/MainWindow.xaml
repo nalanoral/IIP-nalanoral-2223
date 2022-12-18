@@ -7,15 +7,24 @@
         mc:Ignorable="d"
         Title="Project" Height="450" Width="800">
     <Grid >
-        <Image x:Name="imgBird" HorizontalAlignment="Left" Height="56" Margin="81,65,0,0" VerticalAlignment="Top" Width="44" Source="Images/bird.jpg"/>
-        <Button x:Name="btnStart" Content="START" HorizontalAlignment="Left" Margin="404,379,0,0" VerticalAlignment="Top" Height="45" Width="88" Click="BtnStart_Click"/>
-        <Button x:Name="btnStop" Content="STOP" HorizontalAlignment="Left" Margin="532,379,0,0" VerticalAlignment="Top" Height="45" Width="88" Click="BtnStop_Click"/>
-        <Button x:Name="btnReset" Content="RESET" HorizontalAlignment="Left" Margin="662,379,0,0" VerticalAlignment="Top" Height="45" Width="89" Click="BtnReset_Click"/>
-        <TextBlock  HorizontalAlignment="Left" Margin="448,49,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="238" Width="258"/>
-        <Button Content="MUTE" Background="Aqua" HorizontalAlignment="Left" Margin="216,379,0,0" VerticalAlignment="Top" Height="45" Width="77"/>
-        <Image  HorizontalAlignment="Left" Height="55" Margin="146,66,0,0" VerticalAlignment="Top" Width="45" Source="/Images/dog.jpg"/>
-        <Image HorizontalAlignment="Left" Height="55" Margin="219,68,0,0" VerticalAlignment="Top" Width="45" Source="/Images/cat.jpg"/>
-        <Image HorizontalAlignment="Left" Height="55" Margin="81,130,0,0" VerticalAlignment="Top" Width="45" Source="/Images/chicken.jpg"/>
-        <Label Content="N" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top"/>
+        <Image x:Name="imgBird" HorizontalAlignment="Left" Height="56" Margin="81,102,0,0" VerticalAlignment="Top" Width="44" Source="Images/bird.jpg"/>
+        <Button x:Name="btnStart" Content="START" HorizontalAlignment="Left" Margin="379,266,0,0" VerticalAlignment="Top" Height="38" Width="94" Click="BtnStart_Click"/>
+        <Button x:Name="btnStop" Content="STOP" HorizontalAlignment="Left" Margin="516,266,0,0" VerticalAlignment="Top" Height="38" Width="95" Click="BtnStop_Click"/>
+        <Button x:Name="btnReset" Content="RESET" HorizontalAlignment="Left" Margin="656,266,0,0" VerticalAlignment="Top" Height="38" Width="95" Click="BtnReset_Click"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="338,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="152" Width="158"><Run Text="sounds "/><Run Language="nl-be" Text="list "/><Run Text="hier"/></TextBlock>
+        <Button Content="MUTE" Background="Aqua" HorizontalAlignment="Left" Margin="70,379,0,0" VerticalAlignment="Top" Height="23" Width="121"/>
+        <Image  HorizontalAlignment="Left" Height="55" Margin="146,103,0,0" VerticalAlignment="Top" Width="45" Source="/Images/dog.jpg"/>
+        <Image HorizontalAlignment="Left" Height="55" Margin="219,105,0,0" VerticalAlignment="Top" Width="45" Source="/Images/cat.jpg"/>
+        <Image HorizontalAlignment="Left" Height="55" Margin="81,167,0,0" VerticalAlignment="Top" Width="45" Source="/Images/chicken.jpg"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="126,14,0,0" TextWrapping="Wrap" Text="Write your name hier..." VerticalAlignment="Top" Width="161" Background="Yellow"/>
+        <TextBlock HorizontalAlignment="Left" Margin="601,14,0,0" TextWrapping="Wrap" Text="SCORE:" VerticalAlignment="Top" Background="Yellow" Height="22" Width="74"/>
+        <Image HorizontalAlignment="Left" Height="55" Margin="146,167,0,0" VerticalAlignment="Top" Width="45" Source="/Images/chicken.jpg"/>
+        <Image HorizontalAlignment="Left" Height="55" Margin="219,167,0,0" VerticalAlignment="Top" Width="45" Source="/Images/chicken.jpg"/>
+        <Image x:Name="imgBird_Copy" HorizontalAlignment="Left" Height="56" Margin="81,232,0,0" VerticalAlignment="Top" Width="44" Source="/Images/bird.jpg" RenderTransformOrigin="0.391,2.69"/>
+        <Image  HorizontalAlignment="Left" Height="55" Margin="146,231,0,0" VerticalAlignment="Top" Width="45" Source="/Images/dog.jpg"/>
+        <Image HorizontalAlignment="Left" Height="55" Margin="219,232,0,0" VerticalAlignment="Top" Width="45" Source="/Images/cat.jpg"/>
+        <Label Content="How many music ?" HorizontalAlignment="Left" Margin="0,36,0,0" VerticalAlignment="Top" Width="113"/>
+        <TextBox HorizontalAlignment="Left" Margin="126,36,0,0" TextWrapping="Wrap" Text="Write how many music hier..." VerticalAlignment="Top" Width="161" Background="Yellow"/>
     </Grid>
 </Window>
