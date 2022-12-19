@@ -13,14 +13,13 @@ namespace ConsoleTafels
             // getal opvragen
             Console.Write("Geef een getal: ");
             int getal = Convert.ToInt32(Console.ReadLine());
-            if (getal < 0)
+            while (getal <= 0) 
             {
-                Console.WriteLine("Het getal moet positief zijn. Geef een getal ");
+                Console.Write("Het getal moet positief zijn. Geef een getal ");
+                getal = Convert.ToInt32(Console.ReadLine());
             }
-            else
-            {
-                Console.Write("");
-            }
+            
+        
             return getal;
         }
         private static string DrukTafel(int getal, int lengte)
@@ -44,15 +43,14 @@ namespace ConsoleTafels
             int lengte = VraagPositiefGetal();
 
             // maaltafel laten genereren
-            string tafel = DrukTafel(basisGetal, lengte);
+           string tafel = DrukTafel(basisGetal, lengte);
+
+            // tafel weergeven in de console
             tafel = DrukTafel(4, 8);
             Console.WriteLine(tafel);
 
             tafel = DrukTafel(2, 5);
-
-
-
-            // tafel weergeven in de console
+           
             Console.WriteLine(tafel);
             Console.ReadLine();
         }
