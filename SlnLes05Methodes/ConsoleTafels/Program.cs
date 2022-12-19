@@ -8,19 +8,39 @@ namespace ConsoleTafels
 {
     internal class Program
     {
+        static void Main(string[] args)
+        {
+
+            // tafel weergeven in de console
+            string tafel = DrukTafel(4, 8);
+            Console.WriteLine(tafel);
+
+            tafel = DrukTafel(2, 5);
+            Console.WriteLine(tafel);
+
+            int basisGetal = VraagPositiefGetal();
+            int lengte = VraagPositiefGetal();
+            // maaltafel laten genereren
+
+            tafel = DrukTafel(basisGetal, lengte);
+            Console.WriteLine(tafel);
+
+            Console.ReadLine();
+        }
         private static int VraagPositiefGetal()
         {
             // getal opvragen
             Console.Write("Geef een getal: ");
             int getal = Convert.ToInt32(Console.ReadLine());
-            while (getal <= 0) 
+            while (getal <= 0)
             {
                 Console.Write("Het getal moet positief zijn. Geef een getal ");
                 getal = Convert.ToInt32(Console.ReadLine());
             }
-            
-        
+
+
             return getal;
+
         }
         private static string DrukTafel(int getal, int lengte)
         {
@@ -36,18 +56,6 @@ namespace ConsoleTafels
             return tafel;
         }
 
-        static void Main(string[] args)
-        {
-
-            int basisGetal = VraagPositiefGetal();
-            int lengte = VraagPositiefGetal();
-
-            // maaltafel laten genereren
-           string tafel = DrukTafel(basisGetal, lengte);
-            Console.WriteLine(tafel);
-
-            
-            Console.ReadLine();
-        }
+        
     }
 }

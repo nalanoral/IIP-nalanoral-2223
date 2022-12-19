@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1071EC27-FABF-44EB-B000-DBAEB4BCA931}</ProjectGuid>
+    <ProjectGuid>{9CBB3FC6-5DEE-4B67-9CEA-8641D55F6734}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleTafels</RootNamespace>
-    <AssemblyName>ConsoleTafels</AssemblyName>
+    <RootNamespace>ConsoleFaculteit</RootNamespace>
+    <AssemblyName>ConsoleFaculteit</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
