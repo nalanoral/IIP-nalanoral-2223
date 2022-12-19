@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTafels__2_
+namespace ConsoleTafels
 {
     internal class Program
     {
@@ -45,6 +45,13 @@ namespace ConsoleTafels__2_
 
             // maaltafel laten genereren
             string tafel = DrukTafel(basisGetal, lengte);
+            tafel = DrukTafel(4, 8);
+            Console.WriteLine(tafel);
+
+            tafel = DrukTafel(2, 5);
+
+
+
             // tafel weergeven in de console
             Console.WriteLine(tafel);
             Console.ReadLine();
