@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfEllipsen__3_.Properties
+namespace WpfEllipsen.Properties
 {
 
 

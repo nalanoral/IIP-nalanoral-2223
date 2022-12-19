@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace WpfEllipsen__1_
+namespace WpfEllipsen
 {
     /// <summary>
     /// Interaction logic for App.xaml

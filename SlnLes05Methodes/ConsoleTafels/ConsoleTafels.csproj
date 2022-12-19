@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1071EC27-FABF-44EB-B000-DBAEB4BCA931}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ConsoleTafels__2_</RootNamespace>
-    <AssemblyName>ConsoleTafels %282%29</AssemblyName>
+    <RootNamespace>ConsoleTafels</RootNamespace>
+    <AssemblyName>ConsoleTafels</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

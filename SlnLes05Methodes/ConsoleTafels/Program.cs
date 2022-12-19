@@ -44,14 +44,9 @@ namespace ConsoleTafels
 
             // maaltafel laten genereren
            string tafel = DrukTafel(basisGetal, lengte);
-
-            // tafel weergeven in de console
-            tafel = DrukTafel(4, 8);
             Console.WriteLine(tafel);
 
-            tafel = DrukTafel(2, 5);
-           
-            Console.WriteLine(tafel);
+            
             Console.ReadLine();
         }
     }

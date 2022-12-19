@@ -25,9 +25,7 @@ namespace WpfBoodschappenlijst
         {
             InitializeComponent();
         }
-
-      
-        private void lbxBoodschappen_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void LbxBoodschappen_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             for (int i = 0; i < lbxBoodschappen.Items.Count; i++)
             {
@@ -40,9 +38,8 @@ namespace WpfBoodschappenlijst
             }
             lblBoodschappenlijst.Content = $"Je selecteerde: {boodschappenlijst}";
 
-
             // notatie voor me zelf => controller nog een keer //
-
+           
         }
     }
 }

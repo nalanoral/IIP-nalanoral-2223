@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfEllipsen__3_
+namespace WpfEllipsen
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -64,8 +64,10 @@ namespace WpfEllipsen__3_
                     newEllipse.SetValue(Canvas.TopProperty, yPos);
                     canvas1.Children.Add(newEllipse);
                 }
+
             }
         }
+
         private void SldCirkels_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             lblcirkels.Content = sldCirkels.Value;
@@ -80,5 +82,7 @@ namespace WpfEllipsen__3_
         {
             lblMaxRadius.Content = sldMaxRadius.Value;
         }
+
     }
 }
+
