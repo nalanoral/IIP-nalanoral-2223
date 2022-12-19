@@ -20,6 +20,7 @@ namespace ConsoleTafels
 
             int basisGetal = VraagPositiefGetal();
             int lengte = VraagPositiefGetal();
+
             // maaltafel laten genereren
 
             tafel = DrukTafel(basisGetal, lengte);
@@ -37,10 +38,7 @@ namespace ConsoleTafels
                 Console.Write("Het getal moet positief zijn. Geef een getal ");
                 getal = Convert.ToInt32(Console.ReadLine());
             }
-
-
             return getal;
-
         }
         private static string DrukTafel(int getal, int lengte)
         {
@@ -52,10 +50,10 @@ namespace ConsoleTafels
                 tafel += $"{getal} x {i} = {vermenigvuldiging}";
                 tafel += Environment.NewLine;
             }
+
             // returning naar de main
+
             return tafel;
         }
-
-        
     }
 }
