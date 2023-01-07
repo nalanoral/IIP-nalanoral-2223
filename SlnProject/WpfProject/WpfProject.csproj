@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="WindowsMediaPlayer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,11 +100,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\bird.jpg" />
     <Resource Include="Images\cat.jpg" />
     <Resource Include="Images\chicken.jpg" />
     <Resource Include="Images\cockerel.jpg" />
-    <Resource Include="Images\cow.jpg" />
     <Resource Include="Images\dog.jpg" />
     <Resource Include="Images\donkey.jpg" />
     <Resource Include="Images\duck.jpg" />
@@ -114,15 +113,45 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Sounds\birds.wav" />
-    <Content Include="Sounds\chickensound.wav" />
+    <Resource Include="Images\cow.jpg" />
+    <Resource Include="Images\bird.jpg" />
+    <Content Include="Sounds\background.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\birds.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\chickensound.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Sounds\cockerelsound.wav" />
-    <Content Include="Sounds\cow.wav" />
-    <Content Include="Sounds\dog.wav" />
-    <Content Include="Sounds\dogsounds.wav" />
+    <Content Include="Sounds\cow.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\dog.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\dogsounds.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Sounds\donkeysounds.wav" />
-    <Content Include="Sounds\ducksounds.wav" />
-    <Content Include="Sounds\hoggetsounds.wav" />
+    <Content Include="Sounds\ducksounds.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\hoggetsounds.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

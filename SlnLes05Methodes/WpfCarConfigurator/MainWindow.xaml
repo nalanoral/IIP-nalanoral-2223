@@ -13,9 +13,9 @@
         <Label Content="PRIJS" HorizontalAlignment="Left" Margin="65,357,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Name="lblPrijs" Content="Toon prijs" HorizontalAlignment="Left" Margin="222,357,0,0" VerticalAlignment="Top" Width="124"/>
         <ComboBox Name="cbxModel" HorizontalAlignment="Left" Margin="233,45,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CbxModel_SelectionChanged">
-            <ComboBoxItem Name ="cbx1" Content = "continental v8(85000 euro)" HorizontalAlignment="Left" Width="150"/>
-            <ComboBoxItem Name ="cbx2" Content = "convertible (72000 euro)" HorizontalAlignment="Left" Width="150"/>
-            <ComboBoxItem Name ="cbx3" Content = "mulsanne (65300 euro)" HorizontalAlignment="Left" Width="150" />
+            <ComboBoxItem Name ="model1" Content = "continental v8(85000 euro)" HorizontalAlignment="Left" Width="150"/>
+            <ComboBoxItem Name ="model2" Content = "convertible (72000 euro)" HorizontalAlignment="Left" Width="150"/>
+            <ComboBoxItem Name ="model3" Content = "mulsanne (65300 euro)" HorizontalAlignment="Left" Width="150" />
         </ComboBox>
 
         <RadioButton x:Name="rbnBlauw" Content="blauw" HorizontalAlignment="Left" Margin="235,95,0,0" VerticalAlignment="Top"/>
