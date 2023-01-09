@@ -3,7 +3,36 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolePaswoorden", "ConsolePaswoorden\ConsolePaswoorden.csproj", "{69494715-D8E9-4F4C-A158-7E506E7BB7DA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{88BE41E8-4002-4CB6-A515-B1D55D482E4B}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleFibonacci", "ConsoleFibonacci\ConsoleFibonacci.csproj", "{09DF273E-C5C7-48AF-AECE-4CEF8437C7EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleScores", "ConsoleScores\ConsoleScores.csproj", "{CE5198A9-821D-49AF-8632-BB2DB8D67499}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69494715-D8E9-4F4C-A158-7E506E7BB7DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69494715-D8E9-4F4C-A158-7E506E7BB7DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69494715-D8E9-4F4C-A158-7E506E7BB7DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69494715-D8E9-4F4C-A158-7E506E7BB7DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09DF273E-C5C7-48AF-AECE-4CEF8437C7EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09DF273E-C5C7-48AF-AECE-4CEF8437C7EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09DF273E-C5C7-48AF-AECE-4CEF8437C7EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09DF273E-C5C7-48AF-AECE-4CEF8437C7EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE5198A9-821D-49AF-8632-BB2DB8D67499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE5198A9-821D-49AF-8632-BB2DB8D67499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE5198A9-821D-49AF-8632-BB2DB8D67499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE5198A9-821D-49AF-8632-BB2DB8D67499}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Media;
 using System.Threading;
 using System.Windows;
@@ -15,18 +16,29 @@ namespace WpfProject
     /// </summary>
     public partial class MainWindow : Window
     {
-        int nr = 0;
+        int highScore;
+        int currentScore = 0;
+        const int NUMBER_OF_ANIMALS = 9;
 
-        List<int> ls = new List<int>();
+        // Create an array to store all the images in the game
+        Image[] animalPictures;
+
+        // Create an array to store all the sounds in the game
+        Stream[] animalSounds;
+
+
 
         //Random aanmaken
         private static Random rnd = new Random();
 
         //Muziek aanmaken voor background
-       
+
         WMPLib.WindowsMediaPlayer backgroundMusic = new WMPLib.WindowsMediaPlayer();
 
-        //sounds voor animals
+        // Create a sound player for all the sounds in the game
+        SoundPlayer player = new SoundPlayer();
+
+
         SoundPlayer birds = new System.Media.SoundPlayer();
         SoundPlayer chicken = new System.Media.SoundPlayer();
         SoundPlayer cockerel = new System.Media.SoundPlayer();
@@ -46,36 +58,49 @@ namespace WpfProject
             backgroundMusic.URL = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/background.mp3");
 
             backgroundMusic.controls.stop();
-        }
 
-        //  background music  
+            // Assign images into the array
+            animalPictures = new Image[NUMBER_OF_ANIMALS];
+            animalPictures[0] = imgBird;
+            animalPictures[1] = imgDog;
+            animalPictures[2] = imgCat;
+            animalPictures[3] = imgChicken;
+            animalPictures[4] = imgCockerel;
+            animalPictures[5] = imgDuck;
+            animalPictures[6] = imgCow;
+            animalPictures[7] = imgDonkey;
+            animalPictures[8] = imgHogget;
+
+            // Assign sounds into the array
+            string[] animalSounds = new string[9];
+            animalSounds[0] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/birds.wav");
+            animalSounds[1] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/dog.wav");
+            animalSounds[2] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/cat.wav");
+            animalSounds[3] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/chickensound.wav");
+            animalSounds[4] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/cockerelsound.wav");
+            animalSounds[5] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/ducksounds.wav");
+            animalSounds[6] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/cow.wav");
+            animalSounds[7] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/donkeysounds.wav");
+            animalSounds[8] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/hoggetsounds.wav");
+
+            lblScore.Content = "Score: " + currentScore;
+        }
+        // background music  
         private void PlaySong()
         {
             backgroundMusic.controls.play();
+
         }
 
         private void Game()
         {
         }
-
-
         private void resetGame()
         {
         }
-
-
-
         private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
             PlaySong();
-
-            lblScore.Content = "score:" + nr;
-
-
-            // ls.Add(rnd.Next(0, 9));
-
-
-            //nr = 0;
         }
 
         private void imgDog_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -142,6 +167,64 @@ namespace WpfProject
         {
             //player = (int)sldVolume.Value;
             lblVolume.Content = $"Volume: {sldVolume.Value}";
+        }
+
+        void CountScore(object sender, EventArgs e)
+        {
+            // Open subprogram to see if user enter a correct answer
+            bool answer = CheckCorrectOrNot(sender);
+
+            // Check if the user got the correct answer
+            if (answer == true)
+            {
+                // User gets one point added to their score
+                currentScore = currentScore + 1;
+
+                lblHighScore.Content = "New High Score: " + currentScore;
+            }
+            else
+            {
+                // Show score
+                lblHighScore.Content = "Score: " + currentScore;
+            }
+        }
+        private bool CheckCorrectOrNot(object sender)
+        {
+            throw new NotImplementedException();
+
+            // Check if the user pressed the picture of the animal
+            // that corresponds to the sound that was played
+
+            //if ()
+            //{
+            //  User has selected the right answer! Display the "correct" message
+            // MessageBox.Show("Correct! You got it!");
+
+            // Game();
+
+            //return true;
+            //}
+
+            //else
+
+            //{
+            // User has clicked the wrong animal! Display the "wrong" message 
+            // MessageBox.Show("Oops! Wrong answer");
+            //return false;
+            //}
+
+        }
+
+        bool CheckHighScore()
+        {
+            if (currentScore > highScore)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
