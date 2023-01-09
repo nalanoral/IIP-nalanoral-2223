@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleFibonacci", "Console
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleScores", "ConsoleScores\ConsoleScores.csproj", "{CE5198A9-821D-49AF-8632-BB2DB8D67499}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTodo", "WpfTodo\WpfTodo.csproj", "{BDFD4A7D-B948-4768-9EA5-574063590C64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{CE5198A9-821D-49AF-8632-BB2DB8D67499}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE5198A9-821D-49AF-8632-BB2DB8D67499}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE5198A9-821D-49AF-8632-BB2DB8D67499}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDFD4A7D-B948-4768-9EA5-574063590C64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDFD4A7D-B948-4768-9EA5-574063590C64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDFD4A7D-B948-4768-9EA5-574063590C64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDFD4A7D-B948-4768-9EA5-574063590C64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

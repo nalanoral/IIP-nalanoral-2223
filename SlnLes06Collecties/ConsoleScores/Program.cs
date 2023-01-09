@@ -28,7 +28,7 @@ namespace ConsoleScores
                 scores[i] = rnd.Next(0, 20);
             }
             Console.Write("Scores test: ");
-            // PrintScores(scores, scheiding, laatste);
+            PrintScores(scores, scheiding, laatste);
             Console.WriteLine();
             
             Console.WriteLine($"De gemiddelde score van de test was: {gemiddelde}");
@@ -38,10 +38,15 @@ namespace ConsoleScores
 
         }
 
-        //  private static void PrintScores(int[] scores, string scheiding, string laatste)
-        //{
-
-        // }
+        private static void PrintScores(int[] scores, string scheiding, string laatste)
+        {
+            string puntenlijst = "";
+            for (int i = 0; i < scores.Length - 1; i++)
+            {
+                puntenlijst += scores[i] + scheiding;
+            }
+            Console.WriteLine($"{puntenlijst} {laatste} {scores[6]}");
+        }
 
         private static int ZoekKleinste(int[] scores)
         {
