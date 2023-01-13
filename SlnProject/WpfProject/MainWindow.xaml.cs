@@ -54,10 +54,11 @@ namespace WpfProject
         {
             InitializeComponent();
 
+
             // initialiseer player for background music
             backgroundMusic.URL = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/background.mp3");
-
-            backgroundMusic.controls.stop();
+            backgroundMusic.controls.play();
+            //backgroundMusic.controls.stop();
 
             // Assign images into the array
             animalPictures = new Image[NUMBER_OF_ANIMALS];
@@ -71,24 +72,29 @@ namespace WpfProject
             animalPictures[7] = imgDonkey;
             animalPictures[8] = imgHogget;
 
-            // Assign sounds into the array
-            string[] animalSounds = new string[9];
-            animalSounds[0] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/birds.wav");
-            animalSounds[1] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/dog.wav");
-            animalSounds[2] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/cat.wav");
-            animalSounds[3] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/chickensound.wav");
-            animalSounds[4] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/cockerelsound.wav");
-            animalSounds[5] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/ducksounds.wav");
-            animalSounds[6] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/cow.wav");
-            animalSounds[7] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/donkeysounds.wav");
-            animalSounds[8] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/hoggetsounds.wav");
-
             lblScore.Content = "Score: " + currentScore;
         }
         // background music  
-        private void PlaySong()
+        static private void PlaySounds()
         {
-            backgroundMusic.controls.play();
+            // Assign sounds into the array   
+            string[] animalsounds = new string[9];
+            animalsounds[0] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/birds.wav");
+            animalsounds[1] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/dogsounds.wav");
+            animalsounds[2] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/cat.wav");
+            animalsounds[3] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/chickensound.wav");
+            animalsounds[4] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/cockerelsound..wav");
+            animalsounds[5] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/cow.wav");
+            animalsounds[6] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/donkeysounds.wav");
+            animalsounds[7] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/ducksounds.wav");
+            animalsounds[8] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/hoggetsounds..wav");
+            // random animal sounds play
+            int randomSound = rnd.Next(animalsounds.Length);
+            SoundPlayer animals = new SoundPlayer(animalsounds[randomSound]);
+            
+            animals.Play();
+            animals.Load();
+
 
         }
 
@@ -100,7 +106,7 @@ namespace WpfProject
         }
         private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
-            PlaySong();
+            PlaySounds();
         }
 
         private void imgDog_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)

@@ -18,12 +18,12 @@
             <ComboBoxItem Name ="model3" Content = "mulsanne (65300 euro)" HorizontalAlignment="Left" Width="150" />
         </ComboBox>
 
-        <RadioButton x:Name="rbnBlauw" Content="blauw" HorizontalAlignment="Left" Margin="235,95,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbnGroen" Content="groen +250 euro" HorizontalAlignment="Left" Margin="235,110,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbnRood" Content="rood +700 euro" HorizontalAlignment="Left" Margin="235,125,0,0" VerticalAlignment="Top"/>
-        <CheckBox  Name="chxSpeakers" Content="Bose audio speakers (+1250 euro)" HorizontalAlignment="Left" Margin="235,160,0,0" VerticalAlignment="Top"/>
-        <CheckBox Name ="chxMaatjes" Content="Deluxe matjess (+450 euro) " HorizontalAlignment="Left" Margin="235,180,0,0" VerticalAlignment="Top"/>
-        <CheckBox Name ="chxVelgen" Content="Aliminum velgen (+300 euro)" HorizontalAlignment="Left" Margin="235,200,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbnBlauw" Content="blauw" HorizontalAlignment="Left" Margin="235,95,0,0" VerticalAlignment="Top" Checked="rbnBlauw_Checked" GroupName="kleur" Tag="blauw"/>
+        <RadioButton x:Name="rbnGroen"  Tag="groen" GroupName="kleur" Content="groen +250 euro" HorizontalAlignment="Left" Margin="235,110,0,0" VerticalAlignment="Top" Checked="rbnBlauw_Checked"/>
+        <RadioButton x:Name="rbnRood" Tag="rood" GroupName="kleur" Content="rood +700 euro" HorizontalAlignment="Left" Margin="235,125,0,0" VerticalAlignment="Top" Checked="rbnBlauw_Checked"/>
+        <CheckBox  Name="chxSpeakers" Content="Bose audio speakers (+1250 euro)" HorizontalAlignment="Left" Margin="235,160,0,0" VerticalAlignment="Top" Checked="chxSpeakers_Checked" Unchecked="chbSpeakers_Unchecked"/>
+        <CheckBox Name ="chxMaatjes" Content="Deluxe matjess (+450 euro) " HorizontalAlignment="Left" Margin="235,180,0,0" VerticalAlignment="Top" Checked="chxSpeakers_Checked" Unchecked="chbSpeakers_Unchecked"/>
+        <CheckBox Name ="chxVelgen" Content="Aliminum velgen (+300 euro)" HorizontalAlignment="Left" Margin="235,200,0,0" VerticalAlignment="Top" Checked="chxSpeakers_Checked" Unchecked="chbSpeakers_Unchecked"/>
         <Image x:Name="imgAuto"  HorizontalAlignment="Left" Height="100" Margin="546,31,0,0" VerticalAlignment="Top" Width="204" Source="Images/model1_groen.jpg"/>
         <Image  x:Name="imgSpeakers" HorizontalAlignment="Left" Height="45" Margin="289,246,0,0" VerticalAlignment="Top" Width="80" Source="Images/opties_audio.jpg"/>
         <Image x:Name="imgMaatjes" HorizontalAlignment="Left" Height="40" Margin="418,246,0,0" VerticalAlignment="Top" Width="95" Source="Images/opties_matjes.jpg"/>

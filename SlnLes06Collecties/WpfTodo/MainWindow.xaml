@@ -9,15 +9,15 @@
     <Grid>
         <Label Content="Taak:" HorizontalAlignment="Left" Margin="30,61,0,0" FontSize="16" VerticalAlignment="Top" Width="104"/>
         <Label Content="Prioriteit :" HorizontalAlignment="Left" Margin="29,108,0,0" VerticalAlignment="Top" Width="82" FontSize="16"/>
-        <ComboBox x:Name="cbbPriotiteit" HorizontalAlignment="Left" Margin="135,116,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox x:Name="cbxPriotiteit" HorizontalAlignment="Left" Margin="135,116,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="Laag" HorizontalAlignment="Left" Width="120"/>
             <ComboBoxItem Content="Gemiddeld" HorizontalAlignment="Left" Width="120"/>
             <ComboBoxItem Content="Hoog" HorizontalAlignment="Left" Width="120"/>
         </ComboBox>
-        <ListBox x:Name="lbxTodoList" HorizontalAlignment="Left" Height="169" Margin="289,33,0,0" VerticalAlignment="Top" Width="158"/>
-        <Button  Name="btnadd" Content="Toevogen" HorizontalAlignment="Left" Margin="168,180,0,0" VerticalAlignment="Top" Width="65"/>
-        <Button Name="btnTerug" Content="Terugzetten" HorizontalAlignment="Left" Margin="289,217,0,0" VerticalAlignment="Top" Width="79"/>
-        <Button Name="btnDelete" Content="Verwijderen" HorizontalAlignment="Left" Margin="400,217,0,0" VerticalAlignment="Top" Width="63"/>
+        <ListBox x:Name="lbxTodo" HorizontalAlignment="Left" Height="169" Margin="289,33,0,0" VerticalAlignment="Top" Width="158"/>
+        <Button  Name="btnAdd" Content="Toevogen" HorizontalAlignment="Left" Margin="168,180,0,0" VerticalAlignment="Top" Width="65" Click="BtnAdd_Click"/>
+        <Button Name="btnTerug" Content="Terugzetten" HorizontalAlignment="Left" Margin="289,217,0,0" VerticalAlignment="Top" Width="79" Click="BtnTerug_Click"/>
+        <Button Name="btnDelete" Content="Verwijderen" HorizontalAlignment="Left" Margin="400,217,0,0" VerticalAlignment="Top" Width="70" Height="41" Click="BtnDelete_Click"/>
         <TextBox Name="txtTaak" HorizontalAlignment="Left" Margin="135,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
 
 

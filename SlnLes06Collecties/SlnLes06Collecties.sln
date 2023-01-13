@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleScores", "ConsoleSco
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTodo", "WpfTodo\WpfTodo.csproj", "{BDFD4A7D-B948-4768-9EA5-574063590C64}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleLotto", "ConsoleLotto\ConsoleLotto.csproj", "{FFF6BBE1-049C-4AE3-A9A6-95F86FEEADAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{BDFD4A7D-B948-4768-9EA5-574063590C64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDFD4A7D-B948-4768-9EA5-574063590C64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDFD4A7D-B948-4768-9EA5-574063590C64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFF6BBE1-049C-4AE3-A9A6-95F86FEEADAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFF6BBE1-049C-4AE3-A9A6-95F86FEEADAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFF6BBE1-049C-4AE3-A9A6-95F86FEEADAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFF6BBE1-049C-4AE3-A9A6-95F86FEEADAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
