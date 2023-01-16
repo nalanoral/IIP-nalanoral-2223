@@ -6,7 +6,9 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Xml.Linq;
 using WMPLib;
+using static System.Net.WebRequestMethods;
 
 
 namespace WpfProject
@@ -35,6 +37,11 @@ namespace WpfProject
 
         WMPLib.WindowsMediaPlayer backgroundMusic = new WMPLib.WindowsMediaPlayer();
 
+        //Muziek aanmaken voor applause
+
+        WMPLib.WindowsMediaPlayer applause = new WMPLib.WindowsMediaPlayer();
+
+
         // Create a sound player for all the sounds in the game
         SoundPlayer player = new SoundPlayer();
 
@@ -58,7 +65,10 @@ namespace WpfProject
             // initialiseer player for background music
             backgroundMusic.URL = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/background.mp3");
             backgroundMusic.controls.play();
-            //backgroundMusic.controls.stop();
+
+            // initialiseer applause 
+            applause.URL = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/Applause.mp3");
+            applause.controls.stop();
 
             // Assign images into the array
             animalPictures = new Image[NUMBER_OF_ANIMALS];
@@ -74,30 +84,12 @@ namespace WpfProject
 
             lblScore.Content = "Score: " + currentScore;
         }
-        // background music  
-        static private void PlaySounds()
-        {
-            // Assign sounds into the array   
-            string[] animalsounds = new string[9];
-            animalsounds[0] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/birds.wav");
-            animalsounds[1] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/dogsounds.wav");
-            animalsounds[2] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/cat.wav");
-            animalsounds[3] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/chickensound.wav");
-            animalsounds[4] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/cockerelsound..wav");
-            animalsounds[5] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/cow.wav");
-            animalsounds[6] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/donkeysounds.wav");
-            animalsounds[7] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/ducksounds.wav");
-            animalsounds[8] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/hoggetsounds..wav");
-            // random animal sounds play
-            int randomSound = rnd.Next(animalsounds.Length);
-            SoundPlayer animals = new SoundPlayer(animalsounds[randomSound]);
-            
-            animals.Play();
-            animals.Load();
+        // background music
+        // 
 
 
-        }
-
+       // static private void PlaySounds()
+      
         private void Game()
         {
         }
@@ -106,7 +98,37 @@ namespace WpfProject
         }
         private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
-            PlaySounds();
+            backgroundMusic.controls.stop();
+            lblName.Content = " You are welcome " + tbxName.Text + "you'll listen" + tbxCount.Text + "sounds";
+            lblScore.Content = "Score: " + currentScore;
+
+            // Assign sounds into the array
+
+            string[] animalsounds = new string[9];
+            animalsounds[0] = birds.SoundLocation = "Sounds/birds.wav";
+            animalsounds[1] = dog.SoundLocation = "Sounds/dogsounds.wav";
+            animalsounds[2] = cat.SoundLocation = "Sounds/cat.wav";
+            animalsounds[3] = chicken.SoundLocation = "Sounds/chickensound.wav";
+            animalsounds[4] = cockerel.SoundLocation = "Sounds/cockerelsound..wav";
+            animalsounds[5] = cow.SoundLocation = "Sounds/cow.wav";
+            animalsounds[6] = donkey.SoundLocation = "Sounds/donkeysounds.wav";
+            animalsounds[7] = duck.SoundLocation ="Sounds/ducksounds.wav";
+            animalsounds[8] = hogget.SoundLocation ="Sounds/hoggetsounds.wav";
+
+
+            // het werk niet met get current directory =>> animalsounds[8] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/hoggetsounds..wav");
+            // random animal sounds play
+
+            int aantalSounds = Convert.ToInt32(tbxCount.Text);
+
+            // https://www.c-sharpcorner.com/article/how-to-select-a-random-string-from-an-array-of-strings//
+
+            int randomSound = rnd.Next(0, animalsounds.Length);
+            SoundPlayer animals = new SoundPlayer(animalsounds[randomSound]);
+
+            animals.Load();
+            animals.Play();
+
         }
 
         private void imgDog_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -162,12 +184,7 @@ namespace WpfProject
         {
             hogget.SoundLocation = "Sounds/hoggetsounds.wav";
             hogget.Play();
-        }
-
-        private void btnMute_Click(object sender, RoutedEventArgs e)
-        {
-            backgroundMusic.settings.mute = true;
-        }
+        }  
 
         private void sldVolume_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -204,7 +221,10 @@ namespace WpfProject
             //if ()
             //{
             //  User has selected the right answer! Display the "correct" message
-            // MessageBox.Show("Correct! You got it!");
+
+            MessageBox.Show("Correct! You got it!");
+
+            applause.controls.play();
 
             // Game();
 
@@ -214,8 +234,10 @@ namespace WpfProject
             //else
 
             //{
+
             // User has clicked the wrong animal! Display the "wrong" message 
-            // MessageBox.Show("Oops! Wrong answer");
+
+            MessageBox.Show("Oops! Wrong answer");
             //return false;
             //}
 
@@ -236,6 +258,19 @@ namespace WpfProject
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             resetGame();
+        }
+        private void btnMute_Click(object sender, RoutedEventArgs e)
+        {
+            backgroundMusic.settings.mute = true;
+            applause.settings.mute = true;
+            btnMute.Background = Brushes.Turquoise;
+
+        }
+        private void btnMute_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            backgroundMusic.settings.mute = false;
+            applause.settings.mute = false;
+            btnMute.Background = Brushes.Yellow;
         }
     }
 }
