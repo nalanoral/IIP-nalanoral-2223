@@ -10,11 +10,7 @@ namespace ConsoleProject
     {
         // Random aanmaken
         private static Random rnd = new Random();
-
         public bool GameOver { get; private set; } = false;
-
-        private int guessSound = 0;
-        private int isMatch;
 
         WMPLib.WindowsMediaPlayer backgroundMusic = new WMPLib.WindowsMediaPlayer();
 
@@ -33,39 +29,55 @@ namespace ConsoleProject
         {
             string keuze;
             int aantalSounds;
+            int mute = 1;
+            int score = 0;
+
+            List<string> afspeellijst = new List<string>();
+            List<string> sounds = new List<string>();
+
+            // Create a Random object  
+            Random rnd = new Random();
+            SoundPlayer player = new SoundPlayer();
 
             string[] animalnames = { "birds", "cat", "dog", "chicken", "cockerel", "duck", "cow", "donkey", "hogget" };
             string[] animalsounds = new string[9];
 
             animalsounds[0] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/birds.wav");
-            animalsounds[1] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/dogsounds.wav");
+            animalsounds[1] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/dog.wav");
             animalsounds[2] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/cat.wav");
             animalsounds[3] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/chickensound.wav");
-            animalsounds[4] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/cockerelsound..wav");
+            animalsounds[4] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/cockerelsound.wav");
             animalsounds[5] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/cow.wav");
             animalsounds[6] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/donkeysounds.wav");
             animalsounds[7] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/ducksounds.wav");
-            animalsounds[8] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/hoggetsounds..wav");
-
+            animalsounds[8] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/hoggetsounds.wav");
 
             WMPLib.WindowsMediaPlayer backgroundMusic = new WMPLib.WindowsMediaPlayer();
+
             // initialiseer player for background music
             backgroundMusic.URL = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/background.mp3");
-            //  Background Music activeren
-            backgroundMusic.controls.play();
 
+            // Music activeren
+            backgroundMusic.controls.play();
 
             do
             {
-                Console.WriteLine(@" Welkome Sound Memory Game
-a. Begin met spellen
-b. Pauze nemen
-c.stop");
+                // banner printen
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("Welkome Sound Memory Game");
+                Console.WriteLine("=============================");
+
+                Console.WriteLine(@" 
+a.Begin met spellen
+b.Mute/un mute volume
+c.Animal sounds aan afspeellijst toevoegen
+d.Score
+e.Stop met spellen");
                 Console.Write("je keuze: ");
                 keuze = Console.ReadLine();
-                Console.WriteLine();
                 backgroundMusic.controls.stop();
 
+                // begining of play
                 if (keuze == "a")
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -77,72 +89,120 @@ c.stop");
                     Console.ForegroundColor = ConsoleColor.Red;
                     aantalSounds = Convert.ToInt32(Console.ReadLine());
 
-                    // random animal sounds play
-                    //Select Random String From An Array C# =>>
-                    //https://www.c-sharpcorner.com/article/how-to-select-a-random-string-from-an-array-of-strings/
-
-                    // Create a Random object  
-                    Random rnd = new Random();
-                    int randomSound = rnd.Next(animalsounds.Length);
-
-                    SoundPlayer animals = new SoundPlayer(animalsounds[randomSound]);
-
-                    animals.Load();
-                    animals.PlaySync();
-
-                    List<string> sound = new List<String>();
-
-                    for (int i = 0; i < animalsounds.Length; i++)
+                    // https://stackoverflow.com/questions/14297853/how-to-get-random-values-from-array-in-c-sharp //
+                    // https://www.c-sharpcorner.com/article/how-to-select-a-random-string-from-an-array-of-strings//
+                    for (int i = 0; i < aantalSounds; i++)
                     {
+                        int randomSound = rnd.Next(0, animalsounds.Length);
+                        SoundPlayer animals = new SoundPlayer(animalsounds[randomSound]);
+                        animals.Load();
+                        animals.PlaySync();
+                        switch (randomSound)
+                        {
+                            case 0:
+                                sounds.Add("birds");
+                                break;
+                            case 1:
+                                sounds.Add("dog");
+                                break;
+                            case 2:
+                                sounds.Add("cat");
+                                break;
+                            case 3:
+                                sounds.Add("chicken");
+                                break;
+                            case 4:
+                                sounds.Add("cockerel");
+                                break;
+                            case 5:
+                                sounds.Add("cow");
+                                break;
+                            case 6:
+                                sounds.Add("donkey");
+                                break;
+                            case 7:
+                                sounds.Add("duck");
+                                break;
+                            case 8:
+                                sounds.Add("hogget");
+                                break;
+                        }
+                        Console.WriteLine("Your answer is :");
+                        string answer = Console.ReadLine();
 
-                        // add to list 
-
-                        if (randomSound == 0)
+                        if (answer == string.Join(",", sounds))
                         {
-                            sound.Add("birds");
+                            Console.WriteLine("Bravo ! you got it");
+                            score++;
                         }
-                        else if (randomSound == 1)
+                        else
                         {
-                            sound.Add("dog");
+                            Console.WriteLine("oepss    !");
                         }
-                        else if (randomSound == 2)
-                        {
-                            sound.Add("cat");
-                        }
-                        else if (randomSound == 3)
-                        {
-                            sound.Add("chicken");
-                        }
+                        sounds.Clear();
                     }
-                    Console.WriteLine("++++");
-                    string answer = Console.ReadLine();
+                }
+                // geluid (un)muten
+                else if (keuze == "b")
+                {
 
-                    if (answer == string.Join("-", sound))
+                    MuteSong(mute, player);
+                    if (mute == 1)
                     {
-                        Console.WriteLine("Bravo :-) ");
-
+                        mute--;
                     }
                     else
                     {
-                        Console.WriteLine("uupss  :-( ");
-
+                        mute++;
                     }
-
-                    Console.ReadKey();
+                    Console.Clear();
                 }
-
+                else if (keuze == "c")
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write("lijst voor animalsname:");
+                    string animalsname = Console.ReadLine();
+                    AddSound(animalsname, afspeellijst);
+                    Console.ReadLine();
+                    Console.Clear();
+                }
+                else if (keuze == "d")
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"Jij hebt {Score(score)} .");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
             }
-
-            while (keuze != "c");
-
-            Console.WriteLine("Game over");
-
-            // Notatie voor me zelf //
-            // use list for sound +if add to list //
-            //Methodes voor lijsten =>> see pdf //
-            // use for loop //
-
+            
+            while(keuze != "e");  // 
+        }
+        private static void MuteSong(int mute, SoundPlayer player)
+        {
+            if (mute == 1)
+            {
+                player.Stop();
+            }
+            else
+            {
+                player.Play();
+            }
+        }
+        private static List<string> AddSound(string sound, List<string> afspeellijst)
+        {
+            afspeellijst.Add($"{sound}");
+            return afspeellijst;
+        }
+        private static string Score(int aantalPunten)
+        {
+            if (aantalPunten == 1)
+            {
+                return $"{aantalPunten} punt";
+            }
+            else
+            {
+                return $"{aantalPunten} punten";
+            }
         }
     }
 }
-

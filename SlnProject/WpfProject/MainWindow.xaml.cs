@@ -5,11 +5,10 @@ using System.Media;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Xml.Linq;
 using WMPLib;
-using static System.Net.WebRequestMethods;
-
 
 namespace WpfProject
 {
@@ -18,34 +17,24 @@ namespace WpfProject
     /// </summary>
     public partial class MainWindow : Window
     {
-        int highScore;
-        int currentScore = 0;
-        const int NUMBER_OF_ANIMALS = 9;
+        // below are all the necessary integers declared for  game
+        int lastScore = 0;
+        int score = 0;
+        int soundsCount = 0;
+        private object animalSounds;
+        public double Volume { get; set; }
 
-        // Create an array to store all the images in the game
-        Image[] animalPictures;
-
-        // Create an array to store all the sounds in the game
-        Stream[] animalSounds;
-
-
-
-        //Random aanmaken
+        // Random aanmaken
         private static Random rnd = new Random();
 
-        //Muziek aanmaken voor background
-
+        // Muziek aanmaken voor background
         WMPLib.WindowsMediaPlayer backgroundMusic = new WMPLib.WindowsMediaPlayer();
 
-        //Muziek aanmaken voor applause
-
+        // Muziek aanmaken voor applause
         WMPLib.WindowsMediaPlayer applause = new WMPLib.WindowsMediaPlayer();
-
 
         // Create a sound player for all the sounds in the game
         SoundPlayer player = new SoundPlayer();
-
-
         SoundPlayer birds = new System.Media.SoundPlayer();
         SoundPlayer chicken = new System.Media.SoundPlayer();
         SoundPlayer cockerel = new System.Media.SoundPlayer();
@@ -56,11 +45,14 @@ namespace WpfProject
         SoundPlayer hogget = new System.Media.SoundPlayer();
         SoundPlayer cat = new System.Media.SoundPlayer();
 
-        public double Volume { get; set; }
+        List<string> sounds = new List<string>();
         public MainWindow()
         {
             InitializeComponent();
 
+            // btnStart.IsEnabled = false;
+            // btnRestart.IsEnabled = false;
+            // btnMute.IsEnabled = false;
 
             // initialiseer player for background music
             backgroundMusic.URL = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/background.mp3");
@@ -71,206 +63,228 @@ namespace WpfProject
             applause.controls.stop();
 
             // Assign images into the array
-            animalPictures = new Image[NUMBER_OF_ANIMALS];
-            animalPictures[0] = imgBird;
-            animalPictures[1] = imgDog;
-            animalPictures[2] = imgCat;
-            animalPictures[3] = imgChicken;
-            animalPictures[4] = imgCockerel;
-            animalPictures[5] = imgDuck;
-            animalPictures[6] = imgCow;
-            animalPictures[7] = imgDonkey;
-            animalPictures[8] = imgHogget;
-
-            lblScore.Content = "Score: " + currentScore;
+            string[] animals = new string[9] { "birds", "dog", "cat", "chicken", "cockerel", "cow", "donkey", "duck", "hogget" };
         }
-        // background music
-        // 
-
-
-       // static private void PlaySounds()
-      
-        private void Game()
-        {
-        }
-        private void resetGame()
-        {
-        }
-        private void BtnStart_Click(object sender, RoutedEventArgs e)
-        {
-            backgroundMusic.controls.stop();
-            lblName.Content = " You are welcome " + tbxName.Text + "you'll listen" + tbxCount.Text + "sounds";
-            lblScore.Content = "Score: " + currentScore;
-
-            // Assign sounds into the array
-
-            string[] animalsounds = new string[9];
-            animalsounds[0] = birds.SoundLocation = "Sounds/birds.wav";
-            animalsounds[1] = dog.SoundLocation = "Sounds/dogsounds.wav";
-            animalsounds[2] = cat.SoundLocation = "Sounds/cat.wav";
-            animalsounds[3] = chicken.SoundLocation = "Sounds/chickensound.wav";
-            animalsounds[4] = cockerel.SoundLocation = "Sounds/cockerelsound..wav";
-            animalsounds[5] = cow.SoundLocation = "Sounds/cow.wav";
-            animalsounds[6] = donkey.SoundLocation = "Sounds/donkeysounds.wav";
-            animalsounds[7] = duck.SoundLocation ="Sounds/ducksounds.wav";
-            animalsounds[8] = hogget.SoundLocation ="Sounds/hoggetsounds.wav";
-
-
-            // het werk niet met get current directory =>> animalsounds[8] = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/hoggetsounds..wav");
-            // random animal sounds play
-
-            int aantalSounds = Convert.ToInt32(tbxCount.Text);
-
-            // https://www.c-sharpcorner.com/article/how-to-select-a-random-string-from-an-array-of-strings//
-
-            int randomSound = rnd.Next(0, animalsounds.Length);
-            SoundPlayer animals = new SoundPlayer(animalsounds[randomSound]);
-
-            animals.Load();
-            animals.Play();
-
-        }
-
-        private void imgDog_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void GameLoop(object sender, EventArgs e)
         {
 
+            lblScore.Content = "Score: " + soundsCount;
+            lblLastScore.Content = "Last Score: " + lastScore;
+
+            // variabele item on nieuw item toe te voegen aan listbox
+            ListBoxItem item = new ListBoxItem();
+            item.Content = tbxName.Text + " " + lblScore.Content;
+            lbxLijst.Items.Add(item);
+            tbxName.Text = "";
+            lblScore.Content = "";
+
+        }
+        private void ImgDog_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            imgDog.Opacity = 0.4;
             dog.SoundLocation = "Sounds/dog.wav";
             dog.Play();
+            CheckCorrect("dog");
         }
-
-        private void imgCat_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ImgCat_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             cat.SoundLocation = "Sounds/cat.wav";
             cat.Play();
+            imgCat.Opacity = 0.4;
+            CheckCorrect("cat");
         }
-
-        private void imgChicken_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ImgChicken_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            imgChicken.Opacity = 0.4;
             chicken.SoundLocation = "Sounds/chickensound.wav";
             chicken.Play();
+            CheckCorrect("chicken");
         }
-
-        private void imgCockerel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ImgCockerel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             cockerel.SoundLocation = "Sounds/cockerelsound.wav";
             cockerel.Play();
+            imgCockerel.Opacity = 0.4;
+            CheckCorrect("cockerel");
         }
-
-        private void imgBird_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ImgBird_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             birds.SoundLocation = "Sounds/birds.wav";
             birds.Play();
+            imgBird.Opacity = 0.4;
+            CheckCorrect("birds");
         }
-
-        private void imgDuck_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ImgDuck_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            imgDuck.Opacity = 0.4;
             duck.SoundLocation = "Sounds/ducksounds.wav";
             duck.Play();
+            CheckCorrect("duck");
         }
-
-        private void imgCow_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ImgCow_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             cow.SoundLocation = "Sounds/cow.wav";
             cow.Play();
+            imgCow.Opacity = 0.4;
+            CheckCorrect("cow");
         }
-
-        private void imgDonkey_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ImgDonkey_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             donkey.SoundLocation = "Sounds/donkeysounds.wav";
-            cow.Play();
+            donkey.Play();
+            imgDonkey.Opacity = 0.4;
+            CheckCorrect("donkey");
         }
-
-        private void imgHogget_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ImgHogget_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             hogget.SoundLocation = "Sounds/hoggetsounds.wav";
             hogget.Play();
-        }  
-
-        private void sldVolume_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
+            imgHogget.Opacity = 0.4;
+            CheckCorrect("hogget");
+        }
+        private void SldVolume_ValueChanged_1(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            //player = (int)sldVolume.Value;
+            int player = Convert.ToInt32(sldVolume.Value);
             lblVolume.Content = $"Volume: {sldVolume.Value}";
+            lblVolume.Foreground = Brushes.Orange;
         }
-
-        void CountScore(object sender, EventArgs e)
+        private void PlaySounds()
         {
-            // Open subprogram to see if user enter a correct answer
-            bool answer = CheckCorrectOrNot(sender);
+            backgroundMusic.controls.stop();
 
-            // Check if the user got the correct answer
-            if (answer == true)
+            // Assign sounds into the array
+            string[] animalsounds = new string[9];
+            animalsounds[0] = birds.SoundLocation = "Sounds/birds.wav";
+            animalsounds[1] = dog.SoundLocation = "Sounds/dog.wav";
+            animalsounds[2] = cat.SoundLocation = "Sounds/cat.wav";
+            animalsounds[3] = chicken.SoundLocation = "Sounds/chickensound.wav";
+            animalsounds[4] = cockerel.SoundLocation = "Sounds/cockerelsound.wav";
+            animalsounds[5] = cow.SoundLocation = "Sounds/cow.wav";
+            animalsounds[6] = donkey.SoundLocation = "Sounds/donkeysounds.wav";
+            animalsounds[7] = duck.SoundLocation = "Sounds/ducksounds.wav";
+            animalsounds[8] = hogget.SoundLocation = "Sounds/hoggetsounds.wav";
+
+            // random animal sounds play
+            int aantalSounds = Convert.ToInt32(tbxCount.Text);
+            for (int i = 0; i < aantalSounds; i++)
             {
-                // User gets one point added to their score
-                currentScore = currentScore + 1;
-
-                lblHighScore.Content = "New High Score: " + currentScore;
-            }
-            else
-            {
-                // Show score
-                lblHighScore.Content = "Score: " + currentScore;
-            }
-        }
-        private bool CheckCorrectOrNot(object sender)
-        {
-            throw new NotImplementedException();
-
-            // Check if the user pressed the picture of the animal
-            // that corresponds to the sound that was played
-
-            //if ()
-            //{
-            //  User has selected the right answer! Display the "correct" message
-
-            MessageBox.Show("Correct! You got it!");
-
-            applause.controls.play();
-
-            // Game();
-
-            //return true;
-            //}
-
-            //else
-
-            //{
-
-            // User has clicked the wrong animal! Display the "wrong" message 
-
-            MessageBox.Show("Oops! Wrong answer");
-            //return false;
-            //}
-
-        }
-
-        bool CheckHighScore()
-        {
-            if (currentScore > highScore)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
+                // https://stackoverflow.com/questions/14297853/how-to-get-random-values-from-array-in-c-sharp //
+                // https://www.c-sharpcorner.com/article/how-to-select-a-random-string-from-an-array-of-strings//
+                int randomSound = rnd.Next(0, animalsounds.Length);   
+                SoundPlayer animals = new SoundPlayer(animalsounds[randomSound]);
+                animals.Load();
+                animals.PlaySync();
+                switch (randomSound)
+                {
+                    case 0:
+                        sounds.Add("birds");
+                        break;
+                    case 1:
+                        sounds.Add("dog");
+                        break;
+                    case 2:
+                        sounds.Add("cat");
+                        break;
+                    case 3:
+                        sounds.Add("chicken");
+                        break;
+                    case 4:
+                        sounds.Add("cockerel");
+                        break;
+                    case 5:
+                        sounds.Add("cow");
+                        break;
+                    case 6:
+                        sounds.Add("donkey");
+                        break;
+                    case 7:
+                        sounds.Add("duck");
+                        break;
+                    case 8:
+                        sounds.Add("hogget");
+                        break;
+                }
             }
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
-            resetGame();
+            PlaySounds();
+            GameLoop(sender, e);
         }
-        private void btnMute_Click(object sender, RoutedEventArgs e)
+
+        // https://www.dotnetperls.com/sequenceequal // 
+        // https://stackoverflow.com/questions/3232744/easiest-way-to-compare-arrays-in-c-sharp //
+        private void CheckCorrect(string animals)
+        {
+            if (sounds[soundsCount] != animals)
+            {
+                // MessageBox.Show("wrong !");
+                tbxCount.Text = "";
+                lblName.Content = $"oepps !  {tbxName.Text} ,  play it again ";
+            }
+            if (soundsCount + 1 == sounds.Count)
+            {
+                lblName.Content = $"yess !  {tbxName.Text} ,  you got it ";
+
+                // MessageBox.Show("Correct! You got it!");  // User has selected the right answer! Display the "correct" message 
+                applause.controls.play();
+                // add 1 to the score
+                soundsCount++;   
+            }
+        }
+        private void BtnMute_Click(object sender, RoutedEventArgs e)
         {
             backgroundMusic.settings.mute = true;
             applause.settings.mute = true;
             btnMute.Background = Brushes.Turquoise;
-
         }
-        private void btnMute_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ImportTekstBestand() // methode for tekstbestand  importe to  listbox =>> using pdf van les material
+        {
+            // variabelen path  for My Documenten op de pc
+            string folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string bestand = System.IO.Path.Combine(folder, $"{txtBestand.Text}.txt");
+
+            if (System.IO.File.Exists(bestand))
+            { // file existis =>> https://learn.microsoft.com/en-us/dotnet/api/system.io.directory.getfiles?source=recommendations&view=net-7.0
+                using (StreamReader reader = System.IO.File.OpenText(bestand)) // using streamreader for bestand  open +read
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        ListBoxItem newItem = new ListBoxItem(); // create new listboxitem
+                        newItem.Content = line;
+                        lbxLijst.Items.Add(newItem); // add +item aan de listbox
+                    }
+                }
+            }
+            txtBestand.Text = "Naam Bestand"; // reset textbox 
+        }
+        private void ExportToTekstBestand() // methode for listbox  exporteren to tekstbestand
+        {
+            // pad zoeken
+            string folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string bestand = System.IO.Path.Combine(folder, $"{txtBestand.Text}.txt");
+            using (StreamWriter writer = System.IO.File.CreateText(bestand)) // streamwriter om een tekstbestand for save
+            {
+                foreach (ListBoxItem item in lbxLijst.Items)
+                {
+                    writer.WriteLine(item.Content); // write regel per regel to  het tekstbestand
+                }
+            }
+            txtBestand.Text = "Naam Bestand"; // reset textbox
+        }
+        private void BtnRestart_Click(object sender, RoutedEventArgs e)
+        {
+            lbxLijst.Items.Clear();
+            lblLastScore.Content = "";
+            lblName.Content = "";
+            txtBestand.Text = "";
+            tbxCount.Text = "";
+            GameLoop(sender, e);      
+        }
+        private void BtnUnmute_Click(object sender, RoutedEventArgs e)
         {
             backgroundMusic.settings.mute = false;
-            applause.settings.mute = false;
-            btnMute.Background = Brushes.Yellow;
         }
     }
 }
