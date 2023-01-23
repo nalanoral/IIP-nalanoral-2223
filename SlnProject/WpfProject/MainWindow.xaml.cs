@@ -20,8 +20,9 @@ namespace WpfProject
         // below are all the necessary integers declared for  game
         int lastScore = 0;
         int score = 0;
+        int record;
         int soundsCount = 0;
-        private object animalSounds;
+    
         public double Volume { get; set; }
 
         // Random aanmaken
@@ -32,6 +33,8 @@ namespace WpfProject
 
         // Muziek aanmaken voor applause
         WMPLib.WindowsMediaPlayer applause = new WMPLib.WindowsMediaPlayer();
+
+        WMPLib.WindowsMediaPlayer wrong = new WMPLib.WindowsMediaPlayer();
 
         // Create a sound player for all the sounds in the game
         SoundPlayer player = new SoundPlayer();
@@ -62,22 +65,29 @@ namespace WpfProject
             applause.URL = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/Applause.mp3");
             applause.controls.stop();
 
+            // initialiseer faut sound
+            wrong.URL = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/wrong.mp3");
+            wrong.controls.stop();
+
             // Assign images into the array
             string[] animals = new string[9] { "birds", "dog", "cat", "chicken", "cockerel", "cow", "donkey", "duck", "hogget" };
         }
         private void GameLoop(object sender, EventArgs e)
         {
-
+            soundsCount++;
             lblScore.Content = "Score: " + soundsCount;
+            if (soundsCount > record)
+            {
+                record = soundsCount;
+                lblHighscore.Content = "High Score :" + record;
+            }
             lblLastScore.Content = "Last Score: " + lastScore;
 
             // variabele item on nieuw item toe te voegen aan listbox
             ListBoxItem item = new ListBoxItem();
-            item.Content = tbxName.Text + " " + lblScore.Content;
+            item.Content = tbxName.Text + " " + soundsCount;
             lbxLijst.Items.Add(item);
             tbxName.Text = "";
-            lblScore.Content = "";
-
         }
         private void ImgDog_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
@@ -170,7 +180,7 @@ namespace WpfProject
             {
                 // https://stackoverflow.com/questions/14297853/how-to-get-random-values-from-array-in-c-sharp //
                 // https://www.c-sharpcorner.com/article/how-to-select-a-random-string-from-an-array-of-strings//
-                int randomSound = rnd.Next(0, animalsounds.Length);   
+                int randomSound = rnd.Next(0, animalsounds.Length);
                 SoundPlayer animals = new SoundPlayer(animalsounds[randomSound]);
                 animals.Load();
                 animals.PlaySync();
@@ -218,25 +228,15 @@ namespace WpfProject
         {
             if (sounds[soundsCount] != animals)
             {
-                // MessageBox.Show("wrong !");
-                tbxCount.Text = "";
-                lblName.Content = $"oepps !  {tbxName.Text} ,  play it again ";
+                wrong.controls.play();
+                MessageBox.Show(" Play again!");
             }
-            if (soundsCount + 1 == sounds.Count)
+            else
             {
-                lblName.Content = $"yess !  {tbxName.Text} ,  you got it ";
-
-                // MessageBox.Show("Correct! You got it!");  // User has selected the right answer! Display the "correct" message 
+                MessageBox.Show("Correct! Yougot it!");
                 applause.controls.play();
-                // add 1 to the score
-                soundsCount++;   
+                soundsCount++;
             }
-        }
-        private void BtnMute_Click(object sender, RoutedEventArgs e)
-        {
-            backgroundMusic.settings.mute = true;
-            applause.settings.mute = true;
-            btnMute.Background = Brushes.Turquoise;
         }
         private void ImportTekstBestand() // methode for tekstbestand  importe to  listbox =>> using pdf van les material
         {
@@ -275,16 +275,26 @@ namespace WpfProject
         }
         private void BtnRestart_Click(object sender, RoutedEventArgs e)
         {
+            applause.controls.stop();
+            wrong.controls.stop();
+            GameLoop(sender, e);
+            PlaySounds();  
             lbxLijst.Items.Clear();
+            lblHighscore.Content = string.Empty; 
             lblLastScore.Content = "";
             lblName.Content = "";
             txtBestand.Text = "";
             tbxCount.Text = "";
-            GameLoop(sender, e);      
+        }
+        private void BtnMute_Click(object sender, RoutedEventArgs e)
+        {
+            backgroundMusic.settings.mute = true;  
+            btnMute.Background = Brushes.Orange;
         }
         private void BtnUnmute_Click(object sender, RoutedEventArgs e)
         {
             backgroundMusic.settings.mute = false;
+            btnUnmute.Background = Brushes.Orange;
         }
     }
 }

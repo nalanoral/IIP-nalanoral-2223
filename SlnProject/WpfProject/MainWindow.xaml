@@ -26,12 +26,13 @@
         <Button Name ="btnMute" Content="mute" HorizontalAlignment="Left" Margin="51,388,0,0" VerticalAlignment="Top" Click="BtnMute_Click" Width="67" />
         <Button Name="btnRestart" Content="GameRestart" HorizontalAlignment="Left" Margin="554,383,0,0" VerticalAlignment="Top" Height="23" Width="83" Click="BtnRestart_Click"/>
         <Label Name="lblLastScore" Content="" HorizontalAlignment="Left" Margin="597,58,0,0" VerticalAlignment="Top" Width="129" Height="28"/>
-        <Label Name="lblName" Foreground="Red" Content="" HorizontalAlignment="Left" Margin="305,10,0,0" VerticalAlignment="Top" Width="223" FontSize="11" Height="23"/>
+        <Label Name="lblName" Foreground="Red" Content="" HorizontalAlignment="Left" Margin="316,10,0,0" VerticalAlignment="Top" Width="219" FontSize="14" Height="44"/>
         <Label  Content="how many sound do you want to listen?" HorizontalAlignment="Left" Margin="0,45,0,0" VerticalAlignment="Top" Height="26" Width="204" FontSize="11"/>
         <TextBox  x:Name="tbxCount" HorizontalAlignment="Left" Margin="216,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="74"  Height="22"/>
         <ListBox Name="lbxLijst" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="362,97,186,164"/>
         <TextBox x:Name="txtBestand" Text="Naam Bestand" HorizontalAlignment="Left" Margin="415,313,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button Name="btnUnmute" Content="unmute" HorizontalAlignment="Left" Margin="185,388,0,0" VerticalAlignment="Top" Width="87" Click="BtnUnmute_Click"/>
+        <Label Name="lblHighscore"  Content="High score" HorizontalAlignment="Left" Margin="597,43,0,0" VerticalAlignment="Top" Width="85"/>
 
     </Grid>
 </Window>

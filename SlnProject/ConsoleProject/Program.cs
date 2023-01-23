@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Media;
 using System.Threading;
 using WMPLib;
@@ -10,7 +11,6 @@ namespace ConsoleProject
     {
         // Random aanmaken
         private static Random rnd = new Random();
-        public bool GameOver { get; private set; } = false;
 
         WMPLib.WindowsMediaPlayer backgroundMusic = new WMPLib.WindowsMediaPlayer();
 
@@ -54,8 +54,13 @@ namespace ConsoleProject
 
             WMPLib.WindowsMediaPlayer backgroundMusic = new WMPLib.WindowsMediaPlayer();
 
+            // Muziek aanmaken voor wrong answer music
+            WMPLib.WindowsMediaPlayer wrong = new WMPLib.WindowsMediaPlayer();
+
             // initialiseer player for background music
             backgroundMusic.URL = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/background.mp3");
+
+            wrong.URL = System.IO.Path.Combine(Environment.CurrentDirectory, "Sounds/wronganswer.mp3");
 
             // Music activeren
             backgroundMusic.controls.play();
@@ -63,7 +68,7 @@ namespace ConsoleProject
             do
             {
                 // banner printen
-                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("Welkome Sound Memory Game");
                 Console.WriteLine("=============================");
 
@@ -72,7 +77,9 @@ a.Begin met spellen
 b.Mute/un mute volume
 c.Animal sounds aan afspeellijst toevoegen
 d.Score
-e.Stop met spellen");
+e.Import Score (uit tekstbestand)
+f.Export Score
+g.Stop met spellen");
                 Console.Write("je keuze: ");
                 keuze = Console.ReadLine();
                 backgroundMusic.controls.stop();
@@ -127,11 +134,14 @@ e.Stop met spellen");
                                 sounds.Add("hogget");
                                 break;
                         }
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine("Your answer is :");
+                        Console.ForegroundColor = ConsoleColor.Red;
                         string answer = Console.ReadLine();
 
                         if (answer == string.Join(",", sounds))
                         {
+                            Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine("Bravo ! you got it");
                             score++;
                         }
@@ -142,10 +152,10 @@ e.Stop met spellen");
                         sounds.Clear();
                     }
                 }
+
                 // geluid (un)muten
                 else if (keuze == "b")
                 {
-
                     MuteSong(mute, player);
                     if (mute == 1)
                     {
@@ -155,16 +165,16 @@ e.Stop met spellen");
                     {
                         mute++;
                     }
+                    Console.ReadLine();
                     Console.Clear();
                 }
                 else if (keuze == "c")
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write("lijst voor animalsname:");
+                    Console.Write("Lijst voor animals sound:");
                     string animalsname = Console.ReadLine();
                     AddSound(animalsname, afspeellijst);
                     Console.ReadLine();
-                    Console.Clear();
                 }
                 else if (keuze == "d")
                 {
@@ -173,14 +183,30 @@ e.Stop met spellen");
                     Console.ReadLine();
                     Console.Clear();
                 }
+                else if (keuze == "e")
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Import Score (uit tekstbestand)");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
+                else if (keuze == "f")
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Export Score ");
+                    Console.ReadLine();
+                    Console.Clear();
+                }
             }
-            
-            while(keuze != "e");  // 
+            while (keuze != "g");
         }
         private static void MuteSong(int mute, SoundPlayer player)
         {
             if (mute == 1)
             {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine();
+                Console.WriteLine("MUTED");
                 player.Stop();
             }
             else
@@ -188,10 +214,10 @@ e.Stop met spellen");
                 player.Play();
             }
         }
-        private static List<string> AddSound(string sound, List<string> afspeellijst)
+        private static List<string> AddSound(string sounds, List<string> afspeellijst)
         {
-            afspeellijst.Add($"{sound}");
-            return afspeellijst;
+            afspeellijst.Add($"{sounds}");
+            return afspeellijst;      
         }
         private static string Score(int aantalPunten)
         {
@@ -202,6 +228,32 @@ e.Stop met spellen");
             else
             {
                 return $"{aantalPunten} punten";
+            }
+        }
+
+        private static void ExportScore(string bestand, List<string> score)
+        {
+            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string filePath = System.IO.Path.Combine(folderPath, $"{bestand}.txt");
+            File.WriteAllLines(filePath, score);
+        }
+
+        private static void ImportScore(string bestand, List<string> score)
+        {
+            string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string filePath = System.IO.Path.Combine(folderPath, $"{bestand}.txt");
+
+            // enkel als de file bestaat voer onderstaande code uit https://docs.microsoft.com/en-us/dotnet/api/system.io.file.exists?view=net-5.0
+            if (File.Exists(filePath))
+            {
+                using (StreamReader leesTeksBestand = File.OpenText(filePath))
+                {
+                    string listLine;
+                    while ((listLine = leesTeksBestand.ReadLine()) != null)
+                    {
+                        score.Add($"{listLine}");
+                    }
+                }
             }
         }
     }

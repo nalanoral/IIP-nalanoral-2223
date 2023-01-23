@@ -113,6 +113,9 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Sounds\wronganswer.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Images\cow.jpg" />
     <Resource Include="Images\bird.jpg" />
     <Content Include="Sounds\Applause.mp3">
